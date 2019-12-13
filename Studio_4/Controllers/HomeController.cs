@@ -66,6 +66,12 @@ namespace Studio_4.Controllers
             // Get the cookie dictionary
             var myCookie = Request.Cookies;
 
+            //TODO for loop method to clear all cookies
+            //foreach (KeyValuePair<string, string> cookie in myCookie)
+            //{
+            //    Response.Cookies.Delete(cookie.Key);
+            //}
+
             if (!myCookie.ContainsKey(name))
             {
                 // Set the name and count into the cookie upon first visit
@@ -84,5 +90,6 @@ namespace Studio_4.Controllers
         }
         #endregion
 
+        //TODO create a button to clear all cookies
     }
 }
