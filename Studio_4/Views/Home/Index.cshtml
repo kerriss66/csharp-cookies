@@ -1,8 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
+    ViewData["Title"] = "Greetings Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <nav>
+        <a a asp-controller="Home" asp-action="ClearCookies">Delete Stored Cookies</a>
+    </nav>
 </div>
+<div>
+    <form method='post'>
+        <input type='text' name='name' placeholder='Enter name' />
+        <select name='language'>
+            <option value='English'>English</option>
+            <option value='French'>French</option>
+            <option value='Dutch'>Dutch</option>
+            <option value='Japanese'>Japanese</option>
+        </select>
+        <input type='submit' value='Greet Me!'>
+    </form>
+</div>
+

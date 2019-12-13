@@ -33,3 +33,5 @@
 /Users/wadegilmer/c#/Studio_4/Studio_4/obj/Debug/netcoreapp3.0/Studio_4.dll
 /Users/wadegilmer/c#/Studio_4/Studio_4/obj/Debug/netcoreapp3.0/Studio_4.pdb
 /Users/wadegilmer/c#/Studio_4/Studio_4/obj/Debug/netcoreapp3.0/Studio_4.csproj.CopyComplete
+/Users/wadegilmer/c#/Studio_4/Studio_4/obj/Debug/netcoreapp3.0/Razor/Views/Cheese/Index.cshtml.g.cs
+/Users/wadegilmer/c#/Studio_4/Studio_4/obj/Debug/netcoreapp3.0/Razor/Views/Cheese/Add.cshtml.g.cs

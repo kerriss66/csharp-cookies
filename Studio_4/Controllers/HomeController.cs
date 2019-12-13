@@ -1,8 +1,4 @@
-﻿using System;
-using System.Web;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Studio_4.Controllers
@@ -35,27 +31,16 @@ namespace Studio_4.Controllers
         }
         #endregion
 
-        #region LanguageForm
+        #region LanguageForm Route
         [Route("/")]
         [HttpGet]
         public IActionResult Index()
         {
-            string form = "<form method='post'>" +
-                "<input type='text' name='name' placeholder='Enter name' />" +
-                    "<select name='language'>" +
-                        "<option value='English'>English</option>" +
-                        "<option value='French'>French</option>" +
-                        "<option value='Dutch'>Dutch</option>" +
-                        "<option value='Japanese'>Japanese</option>" +
-                    "</select>" +
-                "<input type='submit' value='Greet Me!'>" +
-                "</form>";
-
-            return Content(form, "text/html");
+            return View();
         }
         #endregion
 
-        #region DisplayGreeting
+        #region DisplayGreeting Route
         [Route("/")]
         [HttpPost]
         public IActionResult Greeting(string name, string language)
@@ -65,12 +50,6 @@ namespace Studio_4.Controllers
 
             // Get the cookie dictionary
             var myCookie = Request.Cookies;
-
-            //TODO for loop method to clear all cookies
-            //foreach (KeyValuePair<string, string> cookie in myCookie)
-            //{
-            //    Response.Cookies.Delete(cookie.Key);
-            //}
 
             if (!myCookie.ContainsKey(name))
             {
@@ -82,7 +61,6 @@ namespace Studio_4.Controllers
                 // Increase the count of the cookie if the cookie exists
                 value = int.Parse(Request.Cookies[name]);
                 Response.Cookies.Append(name, $"{++value}");
-                //Response.Cookies.Delete(name);
             }
 
             string greeting = CreateMessage(name, language, value);
@@ -90,6 +68,24 @@ namespace Studio_4.Controllers
         }
         #endregion
 
-        //TODO create a button to clear all cookies
+        #region Clear Cookies Route
+        [Route("/ClearCookies")]
+        public IActionResult ClearCookies()
+        {
+            // Get all cookies
+            var myCookie = Request.Cookies;
+
+            // For loop method to clear all cookies
+            foreach (KeyValuePair<string, string> cookie in myCookie)
+            {
+                Response.Cookies.Delete(cookie.Key);
+            }
+
+            ViewBag.cookies = "cookies have been erased";
+
+            return Redirect("/");
+        }
+        #endregion
+
     }
 }
