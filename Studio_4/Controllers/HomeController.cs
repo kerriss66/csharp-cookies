@@ -31,19 +31,22 @@ namespace Studio_4.Controllers
         }
         #endregion
 
-        #region LanguageForm Route
+        #region Display Form Route
         [Route("/")]
         [HttpGet]
         public IActionResult Index()
         {
+            // Get the temp data from the ClearCookie route
+            ViewBag.cookie = TempData["cookieMessage"];
+
             return View();
         }
         #endregion
 
-        #region DisplayGreeting Route
+        #region Display Greeting Route
         [Route("/")]
         [HttpPost]
-        public IActionResult Greeting(string name, string language)
+        public IActionResult Greeting(string name = "World", string language = "Hello")
         {
             // Set cookie count to 0
             int value = 0;
@@ -80,10 +83,11 @@ namespace Studio_4.Controllers
             {
                 Response.Cookies.Delete(cookie.Key);
             }
+            // Send temp data to the action route
+            TempData["cookieMessage"] = "cookies have been erased";
 
-            ViewBag.cookies = "cookies have been erased";
-
-            return Redirect("/");
+            // redirect to the action funciton
+            return RedirectToAction("Index");
         }
         #endregion
 
