@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{AC6EFBDB-9351-427D-8AC4-99BFE47A06CF}|Default">
+  <MonoDevelop.Ide.ItemProperties.Studio__4 PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Studio_4/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="Studio_4/Program.cs" Line="27" Column="1" />
+      <File FileName="Studio_4/Controllers/HomeController.cs" Line="84" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Studio_4" expanded="True">
+            <Node name="Studio_4" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
