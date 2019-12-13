@@ -23,26 +23,12 @@ namespace Studio_4.Controllers
         /// <returns></returns>
         public static string CreateMessage(string name, string language, int count)
         {
-            // Check to see if the name is in the dictionary
-            /*
-            if (!names.ContainsKey(name))
-            {
-                names.Add(name, 1);
-            }
-            else
-            {
-                names[name]++;
-            }
-
-            int count = names[name];
-            */
-
             string greeting = (language.ToLower().Contains("english")) ? "Hello" :
                 (language.ToLower().Contains("french")) ? "Bonjour" :
                 (language.ToLower().Contains("dutch")) ? "Holla" :
                 (language.ToLower().Contains("japanese")) ? "Kon'nichiwa" : "Hello";
 
-            // Count the amount of times this user has visited this site
+            // Display the amount of times this user has visited this site
             string counterMsg = (count > 0) ? $"Welcome Back! You have visited {count} times" : "Welcome! This is your first visit!";
 
             return $"<p>{counterMsg}</p><h3>{greeting}, {name}</h3>";
@@ -50,7 +36,6 @@ namespace Studio_4.Controllers
         #endregion
 
         #region LanguageForm
-        // GET: /<controller>/
         [Route("/")]
         [HttpGet]
         public IActionResult Index()
@@ -75,20 +60,23 @@ namespace Studio_4.Controllers
         [HttpPost]
         public IActionResult Greeting(string name, string language)
         {
+            // Set cookie count to 0
             int value = 0;
-            // Get the cookie
+
+            // Get the cookie dictionary
             var myCookie = Request.Cookies;
-            //Response.Cookies.Delete(name);
 
             if (!myCookie.ContainsKey(name))
             {
-                // Set the name and count into the cookie
+                // Set the name and count into the cookie upon first visit
                 Response.Cookies.Append(name, "1");
             }
             else
             {
+                // Increase the count of the cookie if the cookie exists
                 value = int.Parse(Request.Cookies[name]);
                 Response.Cookies.Append(name, $"{++value}");
+                //Response.Cookies.Delete(name);
             }
 
             string greeting = CreateMessage(name, language, value);
